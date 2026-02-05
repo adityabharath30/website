@@ -242,14 +242,15 @@ kbd {
 .header__brand {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: var(--space-1);
 }
 
 .header__name {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-black);
   color: var(--color-text);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .header__name:hover {
@@ -257,9 +258,32 @@ kbd {
 }
 
 .header__subtitle {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
-  letter-spacing: 0.02em;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.01em;
+  font-weight: var(--font-weight-normal);
+}
+
+.header__location {
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-color: var(--color-sky);
+  text-underline-offset: 2px;
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+.header__cursor {
+  display: inline-block;
+  color: var(--color-sky);
+  font-weight: var(--font-weight-normal);
+  margin-left: 1px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .header__nav {

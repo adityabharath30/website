@@ -19,7 +19,7 @@
     {
       id: 'ml-systems',
       label: 'ML Systems',
-      shortDesc: 'Production-minded ML: training, evaluation, and serving patterns that scale beyond notebooks.',
+      shortDesc: 'ML Models that are explainable and reflect user needs.',
       x: 0.28,
       y: 0.28
     },
@@ -46,7 +46,7 @@
     },
     {
       id: 'product',
-      label: 'Product & Comms',
+      label: 'Product Thinking',
       shortDesc: 'Clear narratives and specs: aligning engineers + stakeholders on what to build and why.',
       x: 0.78,
       y: 0.75
@@ -89,7 +89,7 @@
         },
         {
           title: 'NBA DuoFit – Player Pair Analysis',
-          githubUrl: 'https://github.com/adityabharath30/NBA-DuoFit',
+          githubUrl: 'https://github.com/adityabharath30/nbaduofit',
           bullets: [
             'Analyzed lineup chemistry using PCA + KMeans clustering on historical pairs',
             'Built Streamlit app to explore 500+ player combinations interactively',
@@ -211,7 +211,7 @@
     },
 
     'product': {
-      title: 'Product & Comms',
+      title: 'Product Thinking',
       summary: 'Translating data to stories and stories to actions.',
       entries: [
         {
@@ -340,14 +340,33 @@
     edgeGroup.setAttribute('aria-hidden', 'true');
 
     edges.forEach(edge => {
+      const source = edge.sourceNode;
+      const target = edge.targetNode;
+      
+      // Calculate direction vector from source to target
+      const dx = target.cx - source.cx;
+      const dy = target.cy - source.cy;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      // Normalize the direction
+      const nx = dx / distance;
+      const ny = dy / distance;
+      
+      // Calculate edge endpoints at circle boundaries (with small padding)
+      const padding = 2;
+      const x1 = source.cx + nx * (source.radius + padding);
+      const y1 = source.cy + ny * (source.radius + padding);
+      const x2 = target.cx - nx * (target.radius + padding);
+      const y2 = target.cy - ny * (target.radius + padding);
+      
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
       line.setAttribute('class', 'graph-edge');
       line.setAttribute('data-source', edge.source);
       line.setAttribute('data-target', edge.target);
-      line.setAttribute('x1', edge.sourceNode.cx);
-      line.setAttribute('y1', edge.sourceNode.cy);
-      line.setAttribute('x2', edge.targetNode.cx);
-      line.setAttribute('y2', edge.targetNode.cy);
+      line.setAttribute('x1', x1);
+      line.setAttribute('y1', y1);
+      line.setAttribute('x2', x2);
+      line.setAttribute('y2', y2);
       line.setAttribute('stroke', 'var(--color-edge)');
       line.setAttribute('stroke-width', '1.5');
       line.setAttribute('stroke-linecap', 'round');
@@ -726,12 +745,65 @@
   }
 
   // ==========================================================================
+  // Typing Animation
+  // ==========================================================================
+
+  function initTypingAnimation() {
+    const locationEl = document.getElementById('typeLocation');
+    if (!locationEl) return;
+
+    const text = 'NYC';
+    const typeSpeed = 150;      // ms per character
+    const deleteSpeed = 100;    // ms per character when deleting
+    const pauseBeforeDelete = 3000;  // pause before deleting
+    const pauseBeforeType = 500;     // pause before typing again
+
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+      if (!isDeleting) {
+        // Typing
+        if (charIndex < text.length) {
+          locationEl.textContent = text.substring(0, charIndex + 1);
+          charIndex++;
+          setTimeout(type, typeSpeed);
+        } else {
+          // Finished typing, pause then delete
+          setTimeout(() => {
+            isDeleting = true;
+            type();
+          }, pauseBeforeDelete);
+        }
+      } else {
+        // Deleting
+        if (charIndex > 0) {
+          charIndex--;
+          locationEl.textContent = text.substring(0, charIndex);
+          setTimeout(type, deleteSpeed);
+        } else {
+          // Finished deleting, pause then type again
+          isDeleting = false;
+          setTimeout(type, pauseBeforeType);
+        }
+      }
+    }
+
+    // Start the animation
+    setTimeout(type, 500);
+  }
+
+  // ==========================================================================
   // Start
   // ==========================================================================
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', () => {
+      init();
+      initTypingAnimation();
+    });
   } else {
     init();
+    initTypingAnimation();
   }
 })();
