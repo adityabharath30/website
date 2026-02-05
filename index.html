@@ -19,10 +19,9 @@
     </div>
     <nav class="header__nav" role="navigation" aria-label="Main navigation">
       <ul class="nav__list">
-        <li><a href="#about" class="nav__link">About</a></li>
         <li><a href="#graph" class="nav__link">Graph</a></li>
-        <li><a href="#projects" class="nav__link">Projects</a></li>
-        <li><a href="#experience" class="nav__link">Experience</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
         <li><a href="#resume" class="nav__link">Resume</a></li>
       </ul>
     </nav>
@@ -58,7 +57,7 @@
         <div class="about__content">
           <div class="about__bio">
             <p class="about__text about__text--lead">
-              I build ML systems that actually work in production—not just notebooks that look good in demos. 
+              I believe every data point "represents a customer". I believe in putting myself in the end users shoes for designing a data product. 
               My focus is on the entire lifecycle: from data pipelines and model training to deployment, monitoring, and the human decisions they support.
             </p>
             <p class="about__text">
@@ -79,156 +78,6 @@
               <span class="about__details">Grade: A</span>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Selected Projects Section -->
-    <section id="projects" class="section section--projects">
-      <div class="section__container">
-        <h2 class="section__title">Selected Projects</h2>
-        <div class="projects__grid">
-          <article class="project-card">
-            <div class="project-card__header">
-              <h3 class="project-card__title">LLM Analytics Dashboard</h3>
-              <span class="project-card__type">MLOps</span>
-            </div>
-            <p class="project-card__desc">
-              Streamlit dashboard for monitoring OpenAI prompt logs—tracking token usage, latency, and cost across GPT models. 
-              Integrated with PostgreSQL for persistent logging and cost estimation.
-            </p>
-            <div class="project-card__stack">
-              <span class="pill">Python</span>
-              <span class="pill">Streamlit</span>
-              <span class="pill">PostgreSQL</span>
-              <span class="pill">OpenAI API</span>
-            </div>
-            <a href="https://github.com/adityabharath30/llm-analytics-dashboard" class="project-card__link" target="_blank" rel="noopener">
-              View Code →
-            </a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card__header">
-              <h3 class="project-card__title">Bullseye</h3>
-              <span class="project-card__type">AI Product</span>
-            </div>
-            <p class="project-card__desc">
-              Chrome extension that simplifies financial news interpretation, focusing on first- and second-order market impacts. 
-              Prompt-engineered for clarity and actionable insights.
-            </p>
-            <div class="project-card__stack">
-              <span class="pill">JavaScript</span>
-              <span class="pill">OpenAI</span>
-              <span class="pill">Chrome APIs</span>
-              <span class="pill">Prompt Engineering</span>
-            </div>
-            <a href="https://usebullseye.app" class="project-card__link" target="_blank" rel="noopener">
-              Live Demo →
-            </a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card__header">
-              <h3 class="project-card__title">NBA DuoFit</h3>
-              <span class="project-card__type">ML App</span>
-            </div>
-            <p class="project-card__desc">
-              Interactive web app forecasting net rating for All-Star pairs using PCA and KMeans clustering. 
-              Enables exploration of 500+ player combinations with similarity-based predictions.
-            </p>
-            <div class="project-card__stack">
-              <span class="pill">Python</span>
-              <span class="pill">scikit-learn</span>
-              <span class="pill">Streamlit</span>
-              <span class="pill">Clustering</span>
-            </div>
-            <a href="https://github.com/adityabharath30/nbaduofit" class="project-card__link" target="_blank" rel="noopener">
-              View Code →
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section section--experience">
-      <div class="section__container">
-        <h2 class="section__title">Experience</h2>
-        <div class="timeline">
-          <article class="timeline__item">
-            <div class="timeline__marker"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="timeline__role">Data Engineer</h3>
-                <span class="timeline__company">CVS Health</span>
-              </div>
-              <div class="timeline__meta">
-                <span class="timeline__location">New York, NY</span>
-                <span class="timeline__dates">Jul 2025 – Present</span>
-              </div>
-              <ul class="timeline__bullets">
-                <li>Built automation pipelines for report monitoring, supporting 20+ engineers across teams</li>
-                <li>Supported migration of 10+ projects from Teradata to Google Cloud Platform</li>
-                <li>Wrote SQL validation scripts to verify report accuracy and performance post-migration</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="timeline__item">
-            <div class="timeline__marker"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="timeline__role">Data Science Intern</h3>
-                <span class="timeline__company">Tata 1MG</span>
-              </div>
-              <div class="timeline__meta">
-                <span class="timeline__location">New Delhi, India</span>
-                <span class="timeline__dates">Jul 2023 – Aug 2023</span>
-              </div>
-              <ul class="timeline__bullets">
-                <li>Built end-to-end ML pipeline forecasting user return with 83% accuracy on 3.2M+ user base</li>
-                <li>Deployed Random Forest model via API consumed by 5+ business applications</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="timeline__item">
-            <div class="timeline__marker"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="timeline__role">Data Engineering Intern</h3>
-                <span class="timeline__company">CVS Health</span>
-              </div>
-              <div class="timeline__meta">
-                <span class="timeline__location">Hartford, CT</span>
-                <span class="timeline__dates">Jun 2024 – Aug 2024</span>
-              </div>
-              <ul class="timeline__bullets">
-                <li>Created 15+ interactive dashboards serving 150+ clients across business units</li>
-                <li>Improved Tableau report performance by 19.8% via optimization of marks, calculations, and extracts</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="timeline__item">
-            <div class="timeline__marker"></div>
-            <div class="timeline__content">
-              <div class="timeline__header">
-                <h3 class="timeline__role">Data Science Intern</h3>
-                <span class="timeline__company">MakeMyTrip</span>
-              </div>
-              <div class="timeline__meta">
-                <span class="timeline__location">New Delhi, India</span>
-                <span class="timeline__dates">Aug 2022 – Sep 2022</span>
-              </div>
-              <ul class="timeline__bullets">
-                <li>Built seasonal ARIMA model for demand forecasting with ~85% accuracy</li>
-                <li>Created recommendation report improving click-through rate by ~10%</li>
-                <li>Developed Tableau dashboards tracking 15+ KPIs across sales and engagement</li>
-              </ul>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -277,6 +126,7 @@
               <span class="pill pill--skill">Matplotlib</span>
               <span class="pill pill--skill">Seaborn</span>
               <span class="pill pill--skill">Streamlit</span>
+              <span class="pill pill--skill">PyTorch</span>
             </div>
           </div>
         </div>
