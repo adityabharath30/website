@@ -151,9 +151,9 @@
           title: 'LLM Analytics Dashboard',
           githubUrl: 'https://github.com/adityabharath30/LLM-Analytics',
           bullets: [
-            'Built Streamlit dashboard monitoring OpenAI prompts, tokens, latency, and cost',
-            'Integrated OpenAI API with PostgreSQL + SQLAlchemy for log storage',
-            'Created KPI views for usage patterns and cost estimation by model'
+            'Built an LLMOps monitoring and cost-analytics system for production LLM inference',
+            'Enabled request-level observability including prompts, latency, tokens, and cost attribution',
+            'Designed a production-ready analytics pipeline with PostgreSQL, SQLAlchemy, and Streamlit'
           ]
         },
         {
